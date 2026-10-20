@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShadowFrame | Image Steganography</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='favicon.svg') }}"
+      type="image/svg+xml"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"
+          ><svg
+            class="brand-logo"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <rect
+              x="9"
+              y="9"
+              width="20"
+              height="20"
+              rx="4"
+              fill="currentColor"
+              opacity="0.25"
+            />
+            <rect
+              x="3"
+              y="3"
+              width="20"
+              height="20"
+              rx="4"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+            <circle cx="13" cy="13" r="3" fill="currentColor" /></svg
+          >ShadowFrame</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn-cta" href="#tool">Try It Now</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero-section d-flex align-items-center">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 hero-text animate__animated animate__fadeInLeft">
+            <h1 class="display-4 fw-bold mb-3">
+              Invisible Security for Digital World
+            </h1>
+            <p class="lead mb-4">
+              Embed sensitive information within images using advanced
+              steganography and encryption.
+            </p>
+            <div class="d-flex gap-3">
+              <a href="#tool" class="btn btn-primary btn-lg rounded-pill px-5"
+                >Get Started <i class="bi bi-arrow-right ms-2"></i
+              ></a>
+              <a
+                href="#about"
+                class="btn btn-outline-dark btn-lg rounded-pill px-4"
+                >Learn More</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-6 hero-img animate__animated animate__fadeInRight">
+            <div class="hero-visual">
+              <div class="shield-icon">
+                <svg
+                  class="brand-logo"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="9"
+                    y="9"
+                    width="20"
+                    height="20"
+                    rx="4"
+                    fill="currentColor"
+                    opacity="0.25"
+                  />
+                  <rect
+                    x="3"
+                    y="3"
+                    width="20"
+                    height="20"
+                    rx="4"
+                    stroke="currentColor"
+                    stroke-width="3"
+                  />
+                  <circle cx="13" cy="13" r="3" fill="currentColor" />
+                </svg>
+              </div>
+              <div class="lock-icon"><i class="bi bi-layers-fill"></i></div>
+              <div class="file-icon">
+                <i class="bi bi-file-earmark-image"></i>
+              </div>
+              <div class="binary-bg">0101010101</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="custom-shape-divider-bottom-1680000000">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="about-img-container">
+              <div class="about-icon-large">
+                <i class="bi bi-layers-half"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 ps-lg-5">
+            <h6 class="text-primary text-uppercase fw-bold">
+              Understanding Steganography
+            </h6>
+            <h2 class="mb-4 fw-bold">Beyond Traditional Data Protection</h2>
+            <p class="text-muted">
+              Steganography enables sensitive information to be embedded inside
+              ordinary images without noticeably altering their appearance.
+            </p>
+            <p class="text-muted">
+              By combining image-based data hiding with robust encryption,
+              information remains both concealed and protected throughout
+              transmission.
+            </p>
+            <div class="row mt-4">
+              <div class="col-md-6 mb-3">
+                <div class="d-flex align-items-center">
+                  <div class="icon-box me-3">
+                    <i class="bi bi-eye-slash-fill"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-1 fw-bold">Invisible</h6>
+                    <small class="text-muted"
+                      >No visible changes to the original image.</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="d-flex align-items-center">
+                  <div class="icon-box me-3">
+                    <i class="bi bi-shield-lock"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-1 fw-bold">Protected</h6>
+                    <small class="text-muted"
+                      >Advanced AES encryption security.</small
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section-padding bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h6 class="text-primary text-uppercase fw-bold">
+            Why Choose ShadowFrame?
+          </h6>
+          <h2 class="fw-bold">Powerful Features</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="feature-card text-center">
+              <div class="feature-icon mb-4">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h4>Looks Ordinary</h4>
+              <p class="text-muted">
+                The image appears unchanged, allowing hidden information to
+                travel without attracting unnecessary attention.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card text-center">
+              <div class="feature-icon mb-4">
+                <i class="bi bi-lightning-charge"></i>
+              </div>
+              <h4>Stays Personal</h4>
+              <p class="text-muted">
+                Only someone with the correct credentials can retrieve the
+                concealed content.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card text-center">
+              <div class="feature-icon mb-4"><i class="bi bi-images"></i></div>
+              <h4>Works Instantly</h4>
+              <p class="text-muted">
+                Hide or reveal information in seconds, right from your browser.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool -->
+    <section id="tool" class="section-padding tool-section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">Turn Pixels Into Protection</h2>
+          <p class="text-muted">
+            Upload an image and discover how information can travel unnoticed.
+          </p>
+        </div>
+
+        <div class="main-container mt-0">
+          <div class="card custom-card shadow-lg border-0">
+            <ul class="nav nav-tabs nav-fill" id="stegTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="encode-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#encode"
+                  type="button"
+                  role="tab"
+                >
+                  <i class="bi bi-lock-fill me-2"></i>Encode
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="decode-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#decode"
+                  type="button"
+                  role="tab"
+                >
+                  <i class="bi bi-unlock-fill me-2"></i>Decode
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content p-4 p-md-5" id="stegTabsContent">
+              <!-- Encode -->
+              <div
+                class="tab-pane fade show active"
+                id="encode"
+                role="tabpanel"
+              >
+                <form id="encode-form">
+                  <div class="mb-4">
+                    <label class="form-label">Select Image</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      name="image"
+                      accept="image/*"
+                      required
+                    />
+                    <div class="form-text">
+                      Supported formats: PNG, JPG, JPEG
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <label class="form-label">Secret Message</label>
+                    <textarea
+                      class="form-control"
+                      name="message"
+                      rows="4"
+                      placeholder="Type your secret message here..."
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="mb-4">
+                    <label class="form-label">Encryption Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      name="password"
+                      placeholder="Enter a strong password"
+                      required
+                    />
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-lg"
+                      id="encode-btn"
+                    >
+                      Encrypt &amp; Hide Message
+                    </button>
+                  </div>
+                </form>
+
+                <div
+                  class="image-preview-container animate__animated animate__fadeInUp d-none"
+                  id="encoded-result"
+                >
+                  <div class="text-center mb-3">
+                    <i class="bi bi-check-circle-fill text-success fs-1"></i>
+                  </div>
+                  <h5 class="result-title">Success! Image Encoded</h5>
+                  <p class="text-muted mb-3">
+                    Your message has been hidden and encrypted.
+                  </p>
+                  <div class="alert alert-warning mt-3 text-start" role="alert">
+                    <div class="d-flex">
+                      <i class="bi bi-exclamation-triangle-fill me-2 fs-5"></i>
+                      <div>
+                        <strong>Safe Sharing Warning:</strong><br />
+                        Do NOT send this image through WhatsApp or social media
+                        as a photo. Always send as a
+                        <strong>document</strong> or
+                        <strong>ZIP file</strong> to preserve the hidden data.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-grid">
+                    <a
+                      href="#"
+                      class="btn btn-success btn-lg"
+                      id="download-btn"
+                      download="stego_image.png"
+                    >
+                      <i class="bi bi-download me-2"></i>Download Encoded Image
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Decode -->
+              <div class="tab-pane fade" id="decode" role="tabpanel">
+                <form id="decode-form">
+                  <div class="mb-4">
+                    <label class="form-label">Upload Encoded Image</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      name="image"
+                      accept="image/*"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label class="form-label">Decryption Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      name="password"
+                      placeholder="Enter the password used for encryption"
+                      required
+                    />
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-lg"
+                      id="decode-btn"
+                    >
+                      Decrypt &amp; Reveal Message
+                    </button>
+                  </div>
+                </form>
+
+                <div
+                  class="result-box animate__animated animate__fadeInUp d-none"
+                  id="decoded-result"
+                >
+                  <div class="d-flex align-items-center mb-3">
+                    <i class="bi bi-unlock-fill text-primary fs-3 me-2"></i>
+                    <h5 class="result-title mb-0">Decoded Message</h5>
+                  </div>
+                  <div class="result-text-container">
+                    <p class="result-text mb-0" id="decoded-message-text"></p>
+                  </div>
+                  <button
+                    class="btn btn-sm btn-outline-primary mt-3"
+                    onclick="copyToClipboard()"
+                  >
+                    Copy to Clipboard
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+      <div class="container text-center">
+        <svg
+          class="brand-logo text-primary m-0"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <rect
+            x="9"
+            y="9"
+            width="20"
+            height="20"
+            rx="4"
+            fill="currentColor"
+            opacity="0.25"
+          />
+          <rect
+            x="3"
+            y="3"
+            width="20"
+            height="20"
+            rx="4"
+            stroke="currentColor"
+            stroke-width="3"
+          />
+          <circle cx="13" cy="13" r="3" fill="currentColor" />
+        </svg>
+        <p class="mb-0 mt-2">Hide. Secure. Share.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Encode
+      document
+        .getElementById("encode-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const formData = new FormData(this);
+          const btn = document.getElementById("encode-btn");
+          const resultDiv = document.getElementById("encoded-result");
+
+          btn.disabled = true;
+          btn.innerHTML =
+            '<span class="spinner-border spinner-border-sm me-2"></span>Processing...';
+          resultDiv.classList.add("d-none");
+
+          try {
+            const response = await fetch("/encode", {
+              method: "POST",
+              body: formData,
+            });
+            const data = await response.json();
+            if (response.ok) {
+              document.getElementById("download-btn").href = data.encoded_image;
+              resultDiv.classList.remove("d-none");
+            } else {
+              alert(data.error || "An error occurred");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred while processing the image.");
+          } finally {
+            btn.disabled = false;
+            btn.innerHTML = "Encrypt & Hide Message";
+          }
+        });
+
+      // Decode
+      document
+        .getElementById("decode-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const formData = new FormData(this);
+          const btn = document.getElementById("decode-btn");
+          const resultDiv = document.getElementById("decoded-result");
+
+          btn.disabled = true;
+          btn.innerHTML =
+            '<span class="spinner-border spinner-border-sm me-2"></span>Processing...';
+          resultDiv.classList.add("d-none");
+
+          try {
+            const response = await fetch("/decode", {
+              method: "POST",
+              body: formData,
+            });
+            const data = await response.json();
+            if (response.ok) {
+              document.getElementById("decoded-message-text").textContent =
+                data.decoded_message;
+              resultDiv.classList.remove("d-none");
+            } else {
+              alert(data.error || "An error occurred");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred while decoding the image.");
+          } finally {
+            btn.disabled = false;
+            btn.innerHTML = "Decrypt & Reveal Message";
+          }
+        });
+
+      function copyToClipboard() {
+        const text = document.getElementById(
+          "decoded-message-text",
+        ).textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          alert("Message copied to clipboard!");
+        });
+      }
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        document
+          .querySelector(".navbar")
+          .classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // Close mobile menu on link click
+      const menuToggle = document.getElementById("navbarNav");
+      const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+      document.querySelectorAll(".nav-link").forEach((l) => {
+        l.addEventListener("click", () => {
+          if (menuToggle.classList.contains("show")) bsCollapse.hide();
+        });
+      });
+    </script>
+  </body>
+</html>
